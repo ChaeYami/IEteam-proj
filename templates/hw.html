@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- RESET CSS -->
+    <link rel="stylesheet" href="static/css/reset.css">
+
+
+    <!-- 부트스트랩 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <!-- AJAX CDN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <link rel="stylesheet" href="static/css/styles.css" />
+    <title>IE9 Team - 장한울</title>
+
+
+
+    <script>
+        // 방명록 
+        function save_comment() {
+            let nickname = $('#nickname').val()
+            let comment = $('#comment').val()
+
+            let formData = new FormData();
+            formData.append("nickname_give", nickname);
+            formData.append("comment_give", comment);
+            formData.append("member_name_give", '장한울');
+
+            fetch('/writegb', { method: "POST", body: formData, })
+                .then((res) => res.json())
+                .then((data) => {
+                    alert(data["msg"]);
+                    window.location.reload()
+                });
+        }
+        function show_comment() {
+            let member_name = '장한울'
+            formData = new FormData();
+            formData.append("member_name_give", member_name);
+
+            fetch('/guestbookmem', { method: "POST", body: formData, })
+                .then((res) => res.json())
+                .then((data) => {
+                    let rows = data['result']
+                    console.log(rows)
+                    $('#comment-list').empty()
+                    let member_name = rows['member_name']
+
+                    rows.forEach((a) => {
+                        let nickname = a['nickname']
+                        let comment = a['comment']
+
+                        console.log(member_name)
+
+                        let temp_html = `
+                            <div class="card">
+                                <div class="card-body">
+                                <blockquote class="blockquote mb-0">
+                                    <p style="font-weight: bold; font-size: 20px;">${comment}</p>
+                                    <footer class="blockquote-footer">${nickname}</footer>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        `
+
+                        $('#comment-list').append(temp_html)
+
+
+                    })
+
+                })
+        }
+        $(document).ready(function () {
+            show_comment()
+        });
+    </script>
+</head>
+
+<body>
+    <main id="detail_main">
+
+
+        <div id="all_info_box">
+            <div class="all_box">
+                <div class="image_box">
+                    <img class="image"
+                        src="https://platum.kr/wp-content/uploads/2019/12/64497335_490811004989301_7459130390851092480_n.png">
+                </div><!-- e:image_box -->
+                <div class="p_info">
+                    <p>장한울</p>
+                    <p class="blog">블로그 : <a href="https://olivertree.tistory.com/">https://olivertree.tistory.com/</a>
+                    </p>
+                    <p class="email">이메일 : <a href=" jww1512@naver.com"> jww1512@naver.com</a></p>
+                    <div class="qr_code"></div>
+                    <p class="mbti">MBTI: <span>ESTJ-A</span></p>
+                </div><!-- e:p_info -->
+            </div><!-- e:all_box -->
+            <dl class="profile">
+                <div>
+
+                    <br>프론트엔드는 어떤 것을 배우는지 궁금해서 웹 html-css 기초편을 수료중이다.
+
+                    <br>
+                    <h4>하루 일과 끝나면 독서 5분은 꼭 챙긴다 시간 부족하면 1-2분은 꼭 독서한다.</h4>
+
+                    <br>코딩실력이 그저그런 실력이지만 코딩실력 한 단계 한 단계 쌓아올리고 있는 중 입니다.
+
+                </div>
+            </dl><!-- e:profile -->
+            <div class="qr_code"></div>
+        </div><!-- e:all_info_box -->
+
+
+        
+            <li class="write_box">
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="nickname" placeholder="닉네임"
+                        style="margin-bottom: 10px;">
+                    <label for="floatingInput">닉네임</label>
+                </div>
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="방명록을 남겨주세요" id="comment"
+                        style="height: 100px"></textarea>
+                    <label for="floatingTextarea2">방명록</label>
+                </div>
+                <div class="w_b_btn">
+                    <button type="button" class="btn btn-outline-success" onclick="save_comment()">입력하기</button>
+                </div><!-- e:w_b_btn -->
+            </li><!-- e:write_box -->
+            <div class="mycards" id="comment-list" style="padding: 20px;">
+
+            </div>
+
+
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+</html>
