@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
+@font-face {
+    font-family: 'IM_Hyemin-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .pop_up {
     background-size: cover;
     width: 100%;
@@ -12,28 +19,39 @@
     background-repeat: no-repeat;
 }
 
-body{
+body {
     background-color: #272629;
 }
 
 @keyframes bg {
-    0% {opacity: 1;}
+    0% {
+        opacity: 1;
+    }
 
-    100% {opacity: 0;}
+    100% {
+        opacity: 0;
+    }
 }
 
 @keyframes op {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
-#weather_section{
+#weather_section {
     border: 1px solid gray;
     border-radius: 15px;
     text-align: center;
-    font-family: 'Montserrat', sans-serif;
-
+    padding: 20px;
+    width: auto;
+    display: inline-block;
 }
+
 
 
 main #team_profile {
@@ -50,7 +68,7 @@ main #team_profile {
 #index_main {
     width: 1200px;
     margin: 0 auto;
-    
+
 }
 
 main #title {
@@ -160,7 +178,9 @@ main #info>ul .open_list {
     font-size: 2rem;
     line-height: 1.8;
 }
+
 #collapseOne {}
+
 .accordion-body p span {
     color: rgb(255, 193, 246);
     font-size: 2.5rem;
@@ -204,7 +224,8 @@ main #info>ul li ul {}
     padding: 20px;
     border-radius: 25px;
 }
-.form-control{
+
+.form-control {
     background-color: rgba(104, 104, 104, 0.315);
 }
 
@@ -220,29 +241,32 @@ main #info>ul li ul .write_box input[type=text] {
     margin: 10px;
 }
 
-#all_guestbook{
+#all_guestbook {
     width: 60vw;
     margin-left: auto;
     margin-right: auto;
-    
+
 }
-.mycards{
+
+.mycards {
     width: 60vw;
     margin-left: auto;
     margin-right: auto;
 }
+
 .card {
     margin-bottom: 15px;
-    background-color: #3f3e4162;
-    border: 2px solid rgb(255, 253, 246);
+    background-color: #36363849;
+    border: 2px solid gray !important;
     border-radius: 30px;
     width: 60vw;
-   
+
 }
-.card-body{
+
+.card-body {
     color: white;
     padding: 30px;
-    
+
 }
 
 .card:last-child {
@@ -270,11 +294,12 @@ main #info>ul li ul .b_3 {}
 main #info>ul li ul .b_4 {}
 
 
-.blockquote-footer{
+.blockquote-footer {
     margin-top: 5px;
     text-align: right;
 }
-.blockquote mb-0{
+
+.blockquote mb-0 {
     margin-left: 10px;
 }
 
@@ -287,26 +312,31 @@ main #info>ul li ul .b_4 {}
     margin-right: 15vw;
     margin-top: 100px;
 }
+
 .all_box {
-    width: 18vw ;
+    width: 18vw;
     margin-right: 20px;
     white-space: normal;
     margin-left: -20px;
 }
-.all_box .image{
+
+.all_box .image {
     width: 18vw;
 }
+
 main>h1 {
     margin: 50px;
 }
+
 .accordion {
     z-index: 99;
     width: 900px;
     position: relative;
-    margin:50px auto;
+    margin: 50px auto;
     animation: op 5s 1 linear;
     opacity: 1;
 }
+
 main #all_info_box {
     display: flex;
 }
@@ -322,9 +352,11 @@ main #all_info_box .all_box .image_box .image {}
 main #all_info_box .all_box .p_info {
     margin: 20px
 }
-.p_info a{
+
+.p_info a {
     text-decoration-line: none;
 }
+
 main #all_info_box .all_box .p_info p {
     margin-bottom: 10px;
 }
@@ -337,7 +369,7 @@ main #all_info_box .all_box .p_info .email {}
 
 .qr_code {
     width: 10vmax;
-    height: 10vmax; 
+    height: 10vmax;
     background-color: aqua;
     margin-bottom: 10px;
     right: 10px;
@@ -364,7 +396,7 @@ main #all_info_box .profile dt {
 main #all_info_box .profile div {
 
     line-height: 1.6;
-    font-size: 1.2rem;
+    font-size: 1.05em;
     white-space: normal;
     border: 1px solid gray;
     padding: 30px;

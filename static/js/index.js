@@ -79,7 +79,7 @@ function show_all_comment() {
                     <div class="card" id = "home_card">
                         <div class="card-body">
                         <blockquote class="blockquote mb-0">
-                        <p>${name}</p>
+                        <p>To. ${name}</p>
                             <p style="font-weight: bold; font-size: 20px;">${comment}</p>
                             <footer class="blockquote-footer">${nickname}</footer>
                             </blockquote>
