@@ -197,7 +197,10 @@ main #info>ul li ul {}
     display: flex;
     flex-flow: column nowrap;
     border: 1px solid gray;
-    margin: 50px 50px 50px 20vw;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
     padding: 20px;
     border-radius: 25px;
 }
@@ -218,17 +221,22 @@ main #info>ul li ul .write_box input[type=text] {
 }
 
 #all_guestbook{
-    width: 70%;
+    width: 60vw;
     margin-left: auto;
     margin-right: auto;
     
+}
+.mycards{
+    width: 60vw;
+    margin-left: auto;
+    margin-right: auto;
 }
 .card {
     margin-bottom: 15px;
     background-color: #3f3e4162;
     border: 2px solid rgb(255, 253, 246);
     border-radius: 30px;
-    width: 70vw;
+    width: 60vw;
    
 }
 .card-body{
@@ -283,6 +291,7 @@ main #info>ul li ul .b_4 {}
     width: 18vw ;
     margin-right: 20px;
     white-space: normal;
+    margin-left: -20px;
 }
 .all_box .image{
     width: 18vw;

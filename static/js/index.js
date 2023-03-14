@@ -44,7 +44,7 @@ window.onload = function () {
 }
 
 
-// 방명록 쓰기
+// =================== 방명록 쓰기 =================== 
 function save_comment() {
     let name = document.getElementById("member_name").value;
     let nickname = $('#nickname').val()
@@ -63,8 +63,8 @@ function save_comment() {
 
         });
 }
-// 전체 방명록 조회
-function show_comment() {
+// =================== 전체 방명록 조회 =================== 
+function show_all_comment() {
 
     fetch('/guestbook', {})
         .then((res) => res.json())
@@ -76,24 +76,78 @@ function show_comment() {
                 let comment = a['comment']
                 let name = a['member_name']
                 let temp_html = `
-                <div class="card">
-                    <div class="card-body">
-                       <blockquote class="blockquote mb-0">
-                       <p>${name}</p>
-                         <p style="font-weight: bold; font-size: 20px;">${comment}</p>
-                         <footer class="blockquote-footer">${nickname}</footer>
-                        </blockquote>
+                    <div class="card" id = "home_card">
+                        <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                        <p>${name}</p>
+                            <p style="font-weight: bold; font-size: 20px;">${comment}</p>
+                            <footer class="blockquote-footer">${nickname}</footer>
+                            </blockquote>
+                        </div>
                     </div>
-                </div>
-            `
+                `
 
-                $('#comment-list').append(temp_html)
+                $('#comment-all-list').append(temp_html)
 
 
             })
 
         })
-}
+} // 페이지가 로드되면 표시
 $(document).ready(function () {
-    show_comment()
+    show_all_comment()
 });
+
+
+//  =================== 개인 방명록 작성 =================== 
+function save_comment(name) {
+    let nickname = $('#nickname').val()
+    let comment = $('#comment').val()
+
+    let formData = new FormData();
+    formData.append("nickname_give", nickname);
+    formData.append("comment_give", comment);
+    formData.append("member_name_give", name);
+
+    fetch('/writegb', { method: "POST", body: formData, })
+        .then((res) => res.json())
+        .then((data) => {
+            alert(data["msg"]);
+            window.location.reload()
+        });
+}
+
+// =================== 개인 방명록 조회 =================== 
+function show_comment(name) {
+    let member_name = name
+    formData = new FormData();
+    formData.append("member_name_give", member_name);
+
+    fetch('/guestbookmem', { method: "POST", body: formData, })
+        .then((res) => res.json())
+        .then((data) => {
+            let rows = data['result']
+            console.log(rows)
+            $('#comment-list').empty()
+            let member_name = rows['member_name']
+
+            rows.forEach((a) => {
+                let nickname = a['nickname']
+                let comment = a['comment']
+
+                console.log(member_name)
+
+                let temp_html = `
+                    <div class="card">
+                        <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p style="font-weight: bold; font-size: 20px;">${comment}</p>
+                            <footer class="blockquote-footer">${nickname}</footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                `
+                $('#comment-list').append(temp_html)
+            })
+        })
+}
