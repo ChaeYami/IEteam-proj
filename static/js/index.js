@@ -22,26 +22,6 @@ function go_detail_page(name) {
 //     window.open(`${name}`, '_blank');
 // }
 
-window.onload = function () {
-    let open_btn = document.querySelector('.open_btn')
-    let close_btn = document.querySelector('.close_btn')
-    let close_btn_button = document.querySelector('.close_btn > button')
-    let open_list = document.querySelector('.open_list')
-
-
-    open_btn.addEventListener('click', function () {
-        open_btn.style.display = 'none'
-        close_btn.style.display = 'flex'
-        open_list.style.display = 'block'
-        close_btn_button.style.transform = 'rotate(180deg)'
-    })
-    close_btn.addEventListener('click', function () {
-        open_btn.style.display = 'flex'
-        close_btn.style.display = 'none'
-        open_list.style.display = 'none'
-    })
-
-}
 
 
 // =================== 방명록 쓰기 =================== 
@@ -135,7 +115,6 @@ function show_comment(name) {
         .then((res) => res.json())
         .then((data) => {
             let rows = data['result']
-            console.log(rows)
             $('#comment-list').empty()
             let member_name = rows['member_name']
 
@@ -144,7 +123,6 @@ function show_comment(name) {
                 let comment = a['comment']
                 let idx = a['idx']
 
-                console.log(member_name)
 
                 let temp_html = `
                     <div class="card">
