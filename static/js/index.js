@@ -25,7 +25,7 @@ function go_detail_page(name) {
 
 
 // =================== 방명록 쓰기 =================== 
-function save_comment() {
+/* function save_comment() {
 
 
 
@@ -33,7 +33,6 @@ function save_comment() {
     let comment = $('#comment').val();
     let pw = $('#pwds').val();
 
-  
     
 
     let formData = new FormData();
@@ -48,7 +47,7 @@ function save_comment() {
             window.location.reload()
 
         });
-}
+} */
 // =================== 전체 방명록 조회 =================== 
 function show_all_comment() {
 
@@ -79,10 +78,7 @@ function show_all_comment() {
             })
 
         })
-} // 페이지가 로드되면 표시
-$(document).ready(function () {
-    show_all_comment()
-});
+} 
 
 
 //  =================== 개인 방명록 작성 =================== 
@@ -97,14 +93,50 @@ function save_comment(name) {
     formData.append("member_name_give", name);
     formData.append("pwd_give", pw);
 
-    fetch('/writegb', { method: "POST", body: formData, })
+    if(nickname.trim() == ''){
+        alert('닉네임을 입력해주세요.')
+    }else if(comment.trim() == ''){
+        alert('내용을 입력해주세요.')
+    }else if(pw.trim() == ''){
+        alert('비밀번호를 입력해주세요.')
+    }else{
+        fetch('/writegb', { method: "POST", body: formData,})
         .then((res) => res.json())
         .then((data) => {
             alert(data["msg"]);
             window.location.reload()
         });
+    }
 }
 
+/* function save_comment(name) {
+    let nickname = $('#nickname').val()
+    let comment = $('#comment').val()
+    let pw = $('#pwds').val()
+
+    if(nickname.trim() == ''){
+        alert('닉네임을 입력해주세요.')
+    }else if(comment.trim() == ''){
+        alert('내용을 입력해주세요.')
+    }else if(pw.trim() == ''){
+        alert('비밀번호를 입력해주세요.')
+    }else{
+        $.ajax({
+            type: 'POST',
+            url: '/writegb',
+            data: {
+                nickname_give: nickname,
+                comment_give: comment,
+                member_name_give: member_name,
+                pwd_give: pw
+            },
+            success: function (data) {
+                alert(data['msg'])
+                window.location.reload()
+            }
+        })
+    }
+} */
 // =================== 개인 방명록 조회 =================== 
 function show_comment(name) {
     let member_name = name
@@ -116,7 +148,7 @@ function show_comment(name) {
         .then((data) => {
             let rows = data['result']
             $('#comment-list').empty()
-            let member_name = rows['member_name']
+            // let member_name = rows['member_name']
 
             rows.forEach((a, index) => {
                 let nickname = a['nickname']
