@@ -103,11 +103,13 @@ $(document).ready(function () {
 function save_comment(name) {
     let nickname = $('#nickname').val()
     let comment = $('#comment').val()
+    let pw = $('#pwds').val()
 
     let formData = new FormData();
     formData.append("nickname_give", nickname);
     formData.append("comment_give", comment);
     formData.append("member_name_give", name);
+    formData.append("pwd_give", pw);
 
     fetch('/writegb', { method: "POST", body: formData, })
         .then((res) => res.json())
