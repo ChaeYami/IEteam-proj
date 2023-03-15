@@ -312,6 +312,7 @@ main #info>ul li ul {}
 
 .form-control {
     background-color: rgba(104, 104, 104, 0.315);
+    color: white;
 }
 
 main #info>ul li ul .write_box input[type=text] {
