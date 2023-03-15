@@ -1,3 +1,5 @@
+
+
 // 프로필사진 클릭 시 각 멤버 상세페이지로 이동 (팝업으로 띄우기)
 function go_detail_page(name) {
 
