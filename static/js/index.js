@@ -46,19 +46,19 @@ window.onload = function () {
 
 // =================== 방명록 쓰기 =================== 
 function save_comment() {
-    let name = document.getElementById("member_name").value;
-    let nickname = $('#nickname').val()
-    let comment = $('#comment').val()
+    let nickname = $('#nickname').val();
+    let comment = $('#comment').val();
+    let pw = $('#pwds').val();
 
     let formData = new FormData();
     formData.append("nickname_give", nickname);
     formData.append("comment_give", comment);
+    formData.append("pw_give",pw);
 
     fetch('/writegb', { method: "POST", body: formData, })
         .then((res) => res.json())
         .then((data) => {
             alert(data["msg"]);
-            console.log('name')
             window.location.reload()
 
         });

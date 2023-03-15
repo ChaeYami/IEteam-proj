@@ -38,22 +38,22 @@
 <body>
     <main id="detail_main">
 
+        <div class="all_box">
+            <div class="image_box">
+                <img class="image"
+                    src="https://platum.kr/wp-content/uploads/2019/12/64497335_490811004989301_7459130390851092480_n.png">
+            </div><!-- e:image_box -->
+            <div class="p_info">
+                <p>서채연</p>
+                <p class="blog"><a href="https://chaeyami.tistory.com" target="_blank">블로그</a>
+                </p>
+                <p class="email">이메일 : <a href="ssallyseo@gmail.com">ssallyseo@gmail.com</a></p>
 
+                <p class="mbti">MBTI: <span>INFP</span></p>
+            </div><!-- e:p_info -->
+        </div><!-- e:all_box -->
         <div id="all_info_box">
-            <div class="all_box">
-                <div class="image_box">
-                    <img class="image"
-                        src="https://platum.kr/wp-content/uploads/2019/12/64497335_490811004989301_7459130390851092480_n.png">
-                </div><!-- e:image_box -->
-                <div class="p_info">
-                    <p>서채연</p>
-                    <p class="blog"><a href="https://chaeyami.tistory.com" target="_blank">블로그</a>
-                    </p>
-                    <p class="email">이메일 : <a href="ssallyseo@gmail.com">ssallyseo@gmail.com</a></p>
-
-                    <p class="mbti">MBTI: <span>INFP</span></p>
-                </div><!-- e:p_info -->
-            </div><!-- e:all_box -->
+            
             <dl class="profile">
                 <div>
 
@@ -78,6 +78,10 @@
             <div class="form-floating">
                 <textarea class="form-control" placeholder="방명록을 남겨주세요" id="comment" style="height: 100px"></textarea>
                 <label for="floatingTextarea2">방명록</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control" placeholder="비밀번호를 입력하세요" id="pwds">
+                <label for="floatingInput">비밀번호</label>
             </div>
             <div class="w_b_btn">
                 <button type="button" class="btn btn-outline-success" onclick="save_comment('서채연')">입력하기</button>

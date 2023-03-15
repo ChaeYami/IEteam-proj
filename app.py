@@ -16,19 +16,21 @@ def go_detail(name):
     target_html = name + html 
     return render_template(target_html)
 
-# 방명록
+# 방명록 작성
 @app.route("/writegb", methods=["POST"])
 def guestbook_post():
     nickname_receive = request.form['nickname_give']
     comment_receive = request.form['comment_give']
     member_name_receive = request.form['member_name_give']
+    pw_receive = request.form['pw_give']
     doc = {
         'nickname':nickname_receive,
         'comment' :comment_receive,
-        'member_name' :member_name_receive
+        'member_name' :member_name_receive,
+        'pw' : pw_receive
      }
     db.IE9.insert_one(doc)
-    nickname_receive = request.form['nickname_give']
+    # nickname_receive = request.form['nickname_give']
 
     return jsonify({'msg': '저장완료!'})
 

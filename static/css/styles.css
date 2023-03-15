@@ -23,7 +23,7 @@ body {
     background-color: #272629;
 }
 
-a:link{
+a:link {
     text-decoration-line: none;
     color: gray;
 }
@@ -97,11 +97,41 @@ main #team_profile .t_card {
     text-align: center;
 }
 
+#team_profile img {
+    transition: all 0.2s linear;
+    ;
+}
+
+#team_profile img:hover {
+    animation: blinker 1s linear;
+}
+
+
+@keyframes blinker {
+    25% {
+        transform: scale(0.95);
+    }
+
+    50% {
+        transform: scale(0.9);
+    }
+
+    75% {
+        transform: scale(0.95);
+    }
+
+    100% {
+        transform: scale (1);
+    }
+}
+
+
 main #team_profile .t_card .txt_box {
     position: absolute;
     bottom: -60px;
     right: 0px;
 }
+
 main #team_profile .t_card .txt_box p {
     text-align: center;
     color: #fff;
@@ -226,6 +256,7 @@ main #info>ul li ul {}
     margin-right: auto;
     padding: 20px;
     border-radius: 25px;
+    max-width: 800px;
 }
 
 .form-control {
@@ -404,7 +435,7 @@ main #all_info_box .profile div {
     border: 1px solid gray;
     padding: 30px;
     border-radius: 20px;
-
+    max-width: 800px;
 }
 
 
@@ -414,10 +445,10 @@ main #all_info_box .profile div {
     width: 100%;
     margin: 100px auto 0;
     justify-content: space-evenly;
-    border-top:1px solid #fff;
+    border-top: 1px solid #fff;
     background-color: transparent;
     width: 85%;
-    
+
 
 }
 
