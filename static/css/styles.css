@@ -23,6 +23,11 @@ body {
     background-color: #272629;
 }
 
+a:link{
+    text-decoration-line: none;
+    color: gray;
+}
+
 @keyframes bg {
     0% {
         opacity: 1;
@@ -94,16 +99,14 @@ main #team_profile .t_card {
 
 main #team_profile .t_card .txt_box {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    bottom: -60px;
+    right: 0px;
 }
-
 main #team_profile .t_card .txt_box p {
     text-align: center;
     color: #fff;
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 main #team_profile .t_card .txt_box p:first-child {
@@ -402,4 +405,62 @@ main #all_info_box .profile div {
     padding: 30px;
     border-radius: 20px;
 
+}
+
+
+/* footer css */
+.footer {
+    display: flex;
+    width: 100%;
+    margin: 100px auto 0;
+    justify-content: space-evenly;
+    border-top:1px solid #fff;
+    background-color: transparent;
+    width: 85%;
+    
+
+}
+
+.footer .f_left {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.footer .f_left li {
+    margin: 20px 0;
+    font-size: 1rem;
+    color: rgb(173, 173, 173);
+}
+
+.footer .f_left li a {
+    font-size: 1rem;
+}
+
+.footer .f_left .title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.footer .f_right {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.footer .f_right li {
+    margin: 20px 0;
+    font-size: 1rem;
+    color: rgb(173, 173, 173);
+}
+
+.footer .f_right li a {
+    font-size: 1rem;
+}
+
+.footer .f_right .title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 25px;
 }
