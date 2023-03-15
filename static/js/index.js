@@ -146,6 +146,11 @@ function show_comment(name) {
                             <p style="font-weight: bold; font-size: 20px;">${comment}</p>
                             <footer class="blockquote-footer">${nickname}</footer>
                             </blockquote>
+
+
+                            <div><input type="text" placeholder="비밀번호를 입력하세요" id="pwds_for_del"><button id="del_button" onclick="delete_book('${nickname}')">삭제</button></div>
+
+
                         </div>
                     </div>
                 `
@@ -153,3 +158,20 @@ function show_comment(name) {
             })
         })
 }
+
+function delete_book(nickname){
+    let entered_pw = $('#pwds_for_del').val()
+    let nickname = nickname
+
+    const formData = new FormData();
+    formData.append("entered_pw ", entered_pw );
+    formData.append("nickname" , nickname);
+  
+    fetch("/delete", { method: "POST", body: formData })
+      .then((res) => res.json())
+      .then((data) => {
+        alert(data["msg"]);
+      });
+  }
+  
+

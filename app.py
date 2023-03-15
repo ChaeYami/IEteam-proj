@@ -22,7 +22,7 @@ def guestbook_post():
     nickname_receive = request.form['nickname_give']
     comment_receive = request.form['comment_give']
     member_name_receive = request.form['member_name_give']
-    pw_receive = request.form['pw_give']
+    pw_receive = request.form['pwd_give']
     doc = {
         'nickname':nickname_receive,
         'comment' :comment_receive,
@@ -40,6 +40,17 @@ def guestbook_get():
     member_name = request.form['member_name_give']
     all_comments = list(db.IE9.find({'member_name':member_name},{'_id':False}))
     return jsonify({'result': all_comments})  
+
+# 방명록 삭제
+@app.route("/delete",methods=["POST"])
+def delete_card():
+    entered_pw = request.form["entered_pw"]
+    nickname = request.form["nickname"]
+    db.restaurant.delete_one({'pw':entered_pw, 'nickname' : nickname})
+    return jsonify({'msg': '삭제되었습니다.'})   
+    
+
+
 
 # 전체 방명록 조회
 @app.route("/guestbook")
