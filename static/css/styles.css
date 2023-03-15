@@ -419,7 +419,7 @@ main>h1 {
     z-index: 99;
     width: 900px;
     position: relative;
-    margin: 50px auto;
+    margin: 100px auto;
     animation: op 5s 1 linear;
     opacity: 1;
 }
@@ -501,7 +501,21 @@ main #all_info_box .profile div {
     border-radius: 20px;
 
 }
+#nickname{
+    border-color: gray;
+}
+#comment{
+    border-color: gray;
+}
 
+
+#pwds{
+    margin: 15px;
+    padding: 3px;
+    border: 0.5px solid gray;
+    border-radius: 5px;
+    font-size: 15px;
+}
 
 /* footer css */
 .footer {
