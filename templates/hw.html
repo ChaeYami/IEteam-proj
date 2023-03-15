@@ -21,7 +21,7 @@
     <!-- javascript -->
     <script src="/static/js/index.js"></script>
 
-    
+
     <link rel="stylesheet" href="static/css/styles.css" />
     <title>IE9 Team - 장한울</title>
 
@@ -69,25 +69,27 @@
         </div><!-- e:all_info_box -->
 
 
-        
-            <li class="write_box">
-                <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="nickname" placeholder="닉네임"
-                        style="margin-bottom: 10px;">
-                    <label for="floatingInput">닉네임</label>
-                </div>
-                <div class="form-floating">
-                    <textarea class="form-control" placeholder="방명록을 남겨주세요" id="comment"
-                        style="height: 100px"></textarea>
-                    <label for="floatingTextarea2">방명록</label>
-                </div>
-                <div class="w_b_btn">
-                    <button type="button" class="btn btn-outline-success" onclick="save_comment('장한울')">입력하기</button>
-                </div><!-- e:w_b_btn -->
-            </li><!-- e:write_box -->
-            <div class="mycards" id="comment-list" >
 
+        <li class="write_box">
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="nickname" placeholder="닉네임" style="margin-bottom: 10px;">
+                <label for="floatingInput">닉네임</label>
             </div>
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="방명록을 남겨주세요" id="comment" style="height: 100px"></textarea>
+                <label for="floatingTextarea2">방명록</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" placeholder="비밀번호를 입력하세요" id="pwds">
+                <label for="floatingInput">비밀번호</label>
+            </div>
+            <div class="w_b_btn">
+                <button type="button" class="btn btn-outline-success" onclick="save_comment('장한울')">입력하기</button>
+            </div><!-- e:w_b_btn -->
+        </li><!-- e:write_box -->
+        <div class="mycards" id="comment-list">
+
+        </div>
 
 
     </main>
@@ -112,6 +114,7 @@
         </ul><!-- e:f_left -->
     </footer>
 </body>
+
 </html>
 </body>
 

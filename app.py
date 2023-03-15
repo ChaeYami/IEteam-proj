@@ -23,7 +23,15 @@ def guestbook_post():
     comment_receive = request.form['comment_give']
     member_name_receive = request.form['member_name_give']
     pw_receive = request.form['pwd_give']
+
+    idx_list = list(db.IE9.find({},{'_id':False}))
+    idx = 1
+    if idx_list:
+        idx = idx_list[-1]['idx']+1
+    print(type (idx))
+
     doc = {
+        'idx' : idx,
         'nickname':nickname_receive,
         'comment' :comment_receive,
         'member_name' :member_name_receive,
@@ -31,7 +39,6 @@ def guestbook_post():
      }
     db.IE9.insert_one(doc)
     # nickname_receive = request.form['nickname_give']
-
     return jsonify({'msg': '저장완료!'})
 
 # 멤버 방명록 조회
@@ -41,22 +48,28 @@ def guestbook_get():
     all_comments = list(db.IE9.find({'member_name':member_name},{'_id':False}))
     return jsonify({'result': all_comments})  
 
-# 방명록 삭제
-@app.route("/delete",methods=["POST"])
-def delete_card():
-    entered_pw = request.form["entered_pw"]
-    nickname = request.form["nickname"]
-    db.restaurant.delete_one({'pw':entered_pw, 'nickname' : nickname})
-    return jsonify({'msg': '삭제되었습니다.'})   
-    
-
-
-
 # 전체 방명록 조회
 @app.route("/guestbook")
 def guestbook_all():
     all_comments = list(db.IE9.find({},{'_id':False}))
     return jsonify({'result': all_comments})  
+
+
+
+
+
+
+@app.route("/delete",methods=["DELETE"]) 
+def delete_card():
+    
+    idx_receive = request.form['idx_give']
+
+    db.IE9.delete_one({'idx' : int(idx_receive)})
+    
+    return jsonify({'msg': '삭제되었습니다.'})   
+    
+
+
 
 if __name__ == '__main__':
    app.run('0.0.0.0', port=5000, debug=True)
