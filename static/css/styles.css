@@ -78,7 +78,9 @@ main #team_profile {
 
 main #title {
     text-align: center;
-    margin-top: 50px;
+    margin: 50px 0;
+    display: flex;
+    justify-content: center;
 }
 
 main #title h1 {
@@ -88,13 +90,55 @@ main #title h1 {
     height: 300px;
 }
 
-
-
-main #team_profile .t_card {
+main #title h2 {
     position: relative;
-    margin: 30px;
-    width: 270px;
-    text-align: center;
+    font-size: 5rem;
+}
+
+main #title h2:nth-child(1) {
+    animation: tiop .4s 1 linear;
+}
+
+main #title h2:nth-child(2) {
+    animation: tiop .4s 1 linear .4s;
+}
+
+main #title h2:nth-child(3) {
+    animation: tiop .4s 1 linear .8s;
+}
+
+main #title h2:nth-child(4) {
+    animation: tiop .4s 1 linear 1.2s;
+}
+
+main #title h2:nth-child(5) {
+    animation: tiop .4s 1 linear 1.6s;
+}
+
+main #title h2:nth-child(6) {
+    animation: tiop .4s 1 linear 2s;
+}
+
+main #title h2:nth-child(7) {
+    animation: tiop .4s 1 linear 2.4s;
+}
+
+main #title h2:nth-child(8) {
+    animation: tiop .4s 1 linear 2.8s;
+}
+
+main #title h2:nth-child(9) {
+    animation: tiop .4s 1 linear 3.2s;
+}
+
+@keyframes tiop {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 #team_profile img {
@@ -105,7 +149,6 @@ main #team_profile .t_card {
 #team_profile img:hover {
     animation: blinker 1s linear;
 }
-
 
 @keyframes blinker {
     25% {
@@ -125,6 +168,15 @@ main #team_profile .t_card {
     }
 }
 
+
+
+
+main #team_profile .t_card {
+    position: relative;
+    margin: 30px;
+    width: 270px;
+    text-align: center;
+}
 
 main #team_profile .t_card .txt_box {
     position: absolute;
@@ -256,7 +308,6 @@ main #info>ul li ul {}
     margin-right: auto;
     padding: 20px;
     border-radius: 25px;
-    max-width: 800px;
 }
 
 .form-control {
@@ -373,6 +424,8 @@ main>h1 {
 
 main #all_info_box {
     display: flex;
+    flex-flow: column;
+    align-items: center;
 }
 
 main #all_info_box .all_box {
@@ -384,7 +437,8 @@ main #all_info_box .all_box .image_box {}
 main #all_info_box .all_box .image_box .image {}
 
 main #all_info_box .all_box .p_info {
-    margin: 20px
+    margin: 20px;
+    text-align: center;
 }
 
 .p_info a {
@@ -393,6 +447,11 @@ main #all_info_box .all_box .p_info {
 
 main #all_info_box .all_box .p_info p {
     margin-bottom: 10px;
+}
+
+main #all_info_box .all_box .p_info p:first-child {
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
 main #all_info_box .all_box .p_info .name {}
@@ -404,10 +463,13 @@ main #all_info_box .all_box .p_info .email {}
 .qr_code {
     width: 10vmax;
     height: 10vmax;
-    background-color: aqua;
     margin-bottom: 10px;
     right: 10px;
     position: fixed;
+}
+
+.qr_code img {
+    width: 100%;
 }
 
 main #all_info_box .all_box .p_info .mbti {}
@@ -435,7 +497,7 @@ main #all_info_box .profile div {
     border: 1px solid gray;
     padding: 30px;
     border-radius: 20px;
-    max-width: 800px;
+
 }
 
 

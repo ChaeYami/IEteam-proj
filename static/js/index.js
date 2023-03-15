@@ -47,33 +47,27 @@ window.onload = function () {
 // =================== 방명록 쓰기 =================== 
 function save_comment() {
 
+
+
     let nickname = $('#nickname').val();
     let comment = $('#comment').val();
     let pw = $('#pwds').val();
 
-    if (!nickname) {
-        nickname = '익명';
-    }
-    if (!comment) {
-        alert("내용을 입력해주세요");
+  
+    
 
-    } else {
-        let formData = new FormData();
-        formData.append("nickname_give", nickname);
-        formData.append("comment_give", comment);
-        formData.append("pw_give", pw);
+    let formData = new FormData();
+    formData.append("nickname_give", nickname);
+    formData.append("comment_give", comment);
+    formData.append("pw_give", pw);
 
-        fetch('/writegb', { method: "POST", body: formData, })
-            .then((res) => res.json())
-            .then((data) => {
-                alert(data["msg"]);
-                window.location.reload()
+    fetch('/writegb', { method: "POST", body: formData, })
+        .then((res) => res.json())
+        .then((data) => {
+            alert(data["msg"]);
+            window.location.reload()
 
-            });
-    }
-
-
-
+        });
 }
 // =================== 전체 방명록 조회 =================== 
 function show_all_comment() {
