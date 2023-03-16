@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="/static/css/reset.css">
     <link rel="stylesheet" href="/static/css/styles.css">
     <link rel="stylesheet" href="/static/css/up.css">
-    
+
 
 
     <script>
@@ -30,26 +30,30 @@
 </head>
 
 <body>
-    <div id="myname" style="opacity: 0;">
+    <main>
+        <h1>수정</h1>
+        <div id="myname" style="opacity: 0;">
 
-    </div>
-    <div id="id_idx" style="display: none;">
-    {{Resid}}
-    </div>
+        </div>
+        <div id="id_idx" style="display: none;">
+            {{Resid}}
+        </div>
 
-    <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="updated_nickname" placeholder="닉네임" style="margin-bottom: 10px;">
-        <label for="floatingInput">닉네임</label>
-    </div>
-    <div class="form-floating">
-        <textarea class="form-control" placeholder="방명록을 남겨주세요" id="updated_comment" style="height: 100px"></textarea>
-        <label for="floatingTextarea2">방명록</label>
-    </div>
-   
-    <div class="w_b_btn">
-        <button type="button" class="btn btn-outline-light" onclick="save_updated_comment()">입력하기</button>
-    </div><!-- e:w_b_btn -->
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="updated_nickname" placeholder="닉네임"
+                style="margin-bottom: 10px;">
+            <label for="floatingInput">닉네임</label>
+        </div>
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="방명록을 남겨주세요" id="updated_comment"
+                style="height: 100px"></textarea>
+            <label for="floatingTextarea2">방명록</label>
+        </div>
 
+        <div class="w_b_btn">
+            <button type="button" class="btn btn-outline-light" onclick="save_updated_comment()">입력하기</button>
+        </div><!-- e:w_b_btn -->
+    </main>
 </body>
 
 </html>

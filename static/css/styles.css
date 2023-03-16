@@ -622,3 +622,11 @@ main #all_info_box .profile div {
     margin: 5px;
 
 }
+
+.update{
+    border:  0.5px solid gray;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    margin: 5px;
+}

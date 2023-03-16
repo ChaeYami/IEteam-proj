@@ -175,8 +175,9 @@ function show_comment(name) {
                             
                             <div class="input_pw">
                                 <input type="password" class="pwform" id="pw${index}" placeholder="비밀번호를 입력하세요" maxlength="8">
-                                <button class="del" onclick="select_del(${idx}, ${index})">삭제</button>
                                 <button class="update" onclick="select_update(${idx}, ${index})">수정</button>
+                                <button class="del" onclick="select_del(${idx}, ${index})">삭제</button>
+                                
                             </div>
 
                             
