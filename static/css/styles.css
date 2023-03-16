@@ -197,7 +197,6 @@ main #team_profile .t_card .txt_box p:first-child {
     margin-bottom: 10px;
 }
 
-main #team_profile .t_card .txt_box p:last-child {}
 
 main #team_profile a img {
     width: 200px;
@@ -205,29 +204,6 @@ main #team_profile a img {
     border-radius: 50%;
 }
 
-main #team_profile .c_1 {}
-
-main #team_profile .c_1 img {}
-
-main #team_profile .c_2 {}
-
-main #team_profile .c_2 img {}
-
-main #team_profile .c_3 {}
-
-main #team_profile .c_3 img {}
-
-main #team_profile .c_4 {}
-
-main #team_profile .c_4 img {}
-
-main #team_profile .c_5 {}
-
-main #team_profile .c_5 img {}
-
-main #info {}
-
-main #info>ul {}
 
 main #info>ul .open_btn {
     position: relative;
@@ -272,7 +248,6 @@ main #info>ul .open_list {
     line-height: 1.8;
 }
 
-#collapseOne {}
 
 .accordion-body p span {
     color: rgb(255, 193, 246);
@@ -294,14 +269,6 @@ main #info>ul .open_list {
     color: rgb(255, 137, 137);
     font-weight: 700;
 }
-
-main #info>ul .open_btn button {}
-
-main #info>ul .open_btn button img {}
-
-main #info>ul li {}
-
-main #info>ul li ul {}
 
 .write_box {
     text-align: right;
@@ -384,19 +351,10 @@ main #info>ul li ul .box {
     margin: 50px auto;
 }
 
-main #info>ul li ul .box p {}
 
 main #info>ul li ul .box p:first-child {
     margin-bottom: 15px;
 }
-
-main #info>ul li ul .b_1 {}
-
-main #info>ul li ul .b_2 {}
-
-main #info>ul li ul .b_3 {}
-
-main #info>ul li ul .b_4 {}
 
 
 .blockquote-footer {
@@ -445,9 +403,6 @@ main>h1 {
     animation: op 5s 1 linear;
     opacity: 1;
 }
-.accordion-button{
-    
-}
 .accordion-button:focus{
     box-shadow: none;
 }
@@ -461,10 +416,6 @@ main #all_info_box {
 main #all_info_box .all_box {
     margin-right: 20px;
 }
-
-main #all_info_box .all_box .image_box {}
-
-main #all_info_box .all_box .image_box .image {}
 
 main #all_info_box .all_box .p_info {
     margin: 20px;
@@ -484,12 +435,6 @@ main #all_info_box .all_box .p_info p:first-child {
     font-weight: 700;
 }
 
-main #all_info_box .all_box .p_info .name {}
-
-main #all_info_box .all_box .p_info .blog {}
-
-main #all_info_box .all_box .p_info .email {}
-
 .qr_code {
     width: 10vmax;
     height: 10vmax;
@@ -501,10 +446,6 @@ main #all_info_box .all_box .p_info .email {}
 .qr_code img {
     width: 100%;
 }
-
-main #all_info_box .all_box .p_info .mbti {}
-
-main #all_info_box .all_box .p_info .mbti span {}
 
 main #all_info_box .profile {
     display: flex;

@@ -14,18 +14,6 @@ main h1 {
     color: rgb(173, 173, 173);
 }
 
-main .form-floating {}
-
-main .form-floating input[type=text] {}
-
-main .form-floating label {}
-
-main .form-floating {}
-
-main .form-floating textarea {}
-
-main .form-floating label {}
-
 main .w_b_btn {
     text-align: right
 }
