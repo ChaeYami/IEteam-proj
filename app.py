@@ -64,11 +64,19 @@ def update_book():
     print(selected_book)
     return jsonify({'result':selected_book})   
     
-@app.route("/updatepg")
-def openupdate():
-    return render_template('update.html')
+@app.route("/updatepg/<id>")
+def openupdate(id):
+    return render_template('update.html',Resid = id)
 
+@app.route("/saveupdate", methods=["POST"])
+def saveupdate():
+    nickname_receive = request.form['up_nickname_give']
+    comment_receive = request.form['up_comment_give']
+    idxx = request.form['idxx_give']
 
+    db.IE9.update_one({'idxx':idxx},{'$set':{'nickname':nickname_receive,'comment':comment_receive}})
+
+    return jsonify({'msg': '수정완료!'})
 
 # ===================== 방명록 삭제 ===================== 
 @app.route("/delete",methods=["DELETE"]) 

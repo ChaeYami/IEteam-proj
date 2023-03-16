@@ -217,20 +217,55 @@ function select_update(idx, index) {
     });
 };
 
+
+
 function update_book(idx) {
 
     let idx_selected = idx
+    let id = 'updatepg/' + idx
+
     let formData = new FormData();
+    
     formData.append("idx_", idx_selected );
     fetch('/update', { method: "POST", body: formData})
         .then((res) => res.json())
         .then((data) => {
-            let rows = data['result']
-            let nickname = rows['nickname']
-            let test = `${rows}`
-            window.open('updatepg')    
+            // let rows = data['result']
+            // let nickname = rows['nickname']
+            
+            window.open(id)   
+              
         })
 }
+
+function save_updated_comment(){
+    let updated_nickname = $('#updated_nickname').val() //문자열
+    let updated_comment = $('#updated_comment').val()
+    let element = document.getElementById('id_idx')
+    let idxx = element.innerText
+    // console.log(nickname,comment,idxx)
+
+    let formData = new FormData();
+    formData.append("idxx_give", idxx);
+    formData.append("up_nickname_give", updated_nickname);
+    formData.append("up_comment_give", updated_comment);
+    // 유효성 검사
+    if (updated_nickname.trim() == '') {
+        alert('닉네임을 입력해주세요.')
+    } else if (updated_comment.trim() == '') {
+        alert('내용을 입력해주세요.')
+    } else {
+        fetch('/saveupdate', { method: "POST", body: formData, })
+            .then((res) => res.json())
+            .then((data) => {
+                alert(data["msg"]);
+                window.location.reload()
+            });
+    }
+}
+
+
+
 // ======================== 삭제 시작 ========================  
 
 // 삭제하기
