@@ -262,8 +262,10 @@ function save_updated_comment() {
             .then((res) => res.json())
             .then((data) => {
                 alert(data["msg"]);
+                
                 window.close()
                 if (my_name == '서채연') {
+                    
                     opener.location.href = '/cy'
                 } else if (my_name == '장한울') {
                     opener.location.href = '/hw'
