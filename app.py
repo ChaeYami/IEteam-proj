@@ -55,7 +55,18 @@ def guestbook_all():
     all_comments = list(db.IE9.find({},{'_id':False}))
     return jsonify({'result': all_comments})  
 
-
+# ===================== 방명록 수정 ===================== 
+@app.route("/update", methods = ["GET","POST"])
+def update_book():
+    idx_receive = int(request.form['idx_'])
+    print(type(idx_receive))
+    selected_book = list(db.IE9.find({'idx' : idx_receive},{'_id':False}))
+    print(selected_book)
+    return jsonify({'result':selected_book})   
+    
+@app.route("/updatepg")
+def openupdate():
+    return render_template('update.html')
 
 
 

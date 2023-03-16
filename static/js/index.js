@@ -1,29 +1,29 @@
 
 
 // 프로필사진 클릭 시 각 멤버 상세페이지로 이동 (팝업으로 띄우기)
-function go_detail_page(name) {
-
-
-    //창 크기 지정
-    let width = 1200;
-    let height = 900;
-    //pc화면기준 가운데 정렬
-    let left = (window.screen.width / 2) - (width / 2);
-    let top = (window.screen.height / 4);
-
-    //윈도우 속성
-    let windowStatus = 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=yes, status=yes, resizable=yes, titlebar=yes';
-
-    //연결하고싶은url / 무슨 아이디값을 넣을 것인가?
-    const url = `${name}`; 
-
-    //등록된 url 및 window 속성 기준으로 팝업창을 연다.
-    window.open(url, "hello popup", windowStatus);
-
-}
 // function go_detail_page(name) {
-//     window.open(`${name}`, '_blank');
+
+
+//     //창 크기 지정
+//     let width = 1200;
+//     let height = 900;
+//     //pc화면기준 가운데 정렬
+//     let left = (window.screen.width / 2) - (width / 2);
+//     let top = (window.screen.height / 4);
+
+//     //윈도우 속성
+//     let windowStatus = 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=yes, status=yes, resizable=yes, titlebar=yes';
+
+//     //연결하고싶은url / 무슨 아이디값을 넣을 것인가?
+//     const url = `${name}`;
+
+//     //등록된 url 및 window 속성 기준으로 팝업창을 연다.
+//     window.open(url, "hello popup", windowStatus);
+
 // }
+function go_detail_page(name) {
+    window.open(`${name}`, '_blank');
+}
 
 
 
@@ -36,7 +36,7 @@ function go_detail_page(name) {
 //     let comment = $('#comment').val();
 //     let pw = $('#pwds').val();
 
-    
+
 
 //     let formData = new FormData();
 //     formData.append("nickname_give", nickname);
@@ -81,7 +81,7 @@ function show_all_comment() {
             })
 
         })
-} 
+}
 
 
 //  =================== 개인 방명록 작성 =================== 
@@ -96,19 +96,19 @@ function save_comment(name) {
     formData.append("member_name_give", name);
     formData.append("pwd_give", pw);
     // 유효성 검사
-    if(nickname.trim() == ''){
+    if (nickname.trim() == '') {
         alert('닉네임을 입력해주세요.')
-    }else if(comment.trim() == ''){
+    } else if (comment.trim() == '') {
         alert('내용을 입력해주세요.')
-    }else if(pw.trim() == ''){
+    } else if (pw.trim() == '') {
         alert('비밀번호를 입력해주세요.')
-    }else{
-        fetch('/writegb', { method: "POST", body: formData,})
-        .then((res) => res.json())
-        .then((data) => {
-            alert(data["msg"]);
-            window.location.reload()
-        });
+    } else {
+        fetch('/writegb', { method: "POST", body: formData, })
+            .then((res) => res.json())
+            .then((data) => {
+                alert(data["msg"]);
+                window.location.reload()
+            });
     }
 }
 
@@ -149,7 +149,7 @@ function show_comment(name) {
     fetch('/guestbookmem', { method: "POST", body: formData, })
         .then((res) => res.json())
         .then((data) => {
-            
+
             let rows = data['result']
             $('#comment-list').empty()
             // let member_name = rows['member_name']
@@ -168,10 +168,11 @@ function show_comment(name) {
                             <footer class="blockquote-footer">${nickname}</footer>
                             </blockquote>
 
-
+                            
                             <div class="input_pw">
-                                <input type="password" id="pw${index}" placeholder="비밀번호" maxlength="8">
+                                <input type="password" class="pwform" id="pw${index}" placeholder="비밀번호를 입력하세요" maxlength="8">
                                 <button class="del" onclick="select_del(${idx}, ${index})">삭제</button>
+                                <button class="update" onclick="select_update(${idx}, ${index})">수정</button>
                             </div>
 
                             
@@ -183,6 +184,53 @@ function show_comment(name) {
         })
 }
 
+
+// ======================== 수정 ========================  
+
+// idx값 찾기
+function select_update(idx, index) {
+    let pwd = $("#pw" + index).val();
+    console.log("idx : " + idx)
+    //console.log(result)
+    $.ajax({
+        type: "GET",
+        url: "/guestbook",
+        data: {
+            'idx_give': idx
+        },
+        success: function (response) {
+            idx_result = response.result
+
+            for (let i = 0; i < idx_result.length; i++) {
+                let gbook = idx_result[i];
+                let gbook_idx = gbook.idx
+                if (idx == gbook_idx) {
+                    let gbook_password = gbook.pw
+                    if (pwd == gbook_password) {
+                        update_book(idx)
+                    } else {
+                        alert('비밀번호를 확인해주세요')
+                    }
+                }
+            };
+        }
+    });
+};
+
+function update_book(idx) {
+
+    let idx_selected = idx
+    let formData = new FormData();
+    formData.append("idx_", idx_selected );
+    fetch('/update', { method: "POST", body: formData})
+        .then((res) => res.json())
+        .then((data) => {
+            let rows = data['result']
+            let nickname = rows['nickname']
+            let test = `${rows}`
+            window.open('updatepg')    
+        })
+}
 // ======================== 삭제 시작 ========================  
 
 // 삭제하기
@@ -202,8 +250,6 @@ function delete_book(idx) {
 // idx값 찾기
 function select_del(idx, index) {
     let pwd = $("#pw" + index).val();
-    console.log("idx : " + idx)
-    //console.log(result)
     $.ajax({
         type: "GET",
         url: "/guestbook",

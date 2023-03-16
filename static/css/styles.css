@@ -23,9 +23,9 @@ body {
     background-color: #272629;
 }
 
-a:link {
+a {
     text-decoration-line: none;
-    color: gray;
+    color: rgb(173, 173, 173);
 }
 
 @keyframes bg {
@@ -52,7 +52,7 @@ a:link {
     border: 1px solid gray;
     border-radius: 15px;
     text-align: center;
-    padding: 20px;
+    padding: 15px;
     width: auto;
     display: inline-block;
     position: absolute;
@@ -181,15 +181,16 @@ main #team_profile .t_card {
 
 main #team_profile .t_card .txt_box {
     position: absolute;
-    bottom: -60px;
-    right: 0px;
+    bottom: -30px;
+    right: 8px;
 }
 
 main #team_profile .t_card .txt_box p {
     text-align: center;
     color: #fff;
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    font-family: 'IM_Hyemin-Bold',sans-serif;
 }
 
 main #team_profile .t_card .txt_box p:first-child {
@@ -258,6 +259,12 @@ main #info>ul .close_btn span {
 main #info>ul .open_list {
     display: none;
 }
+
+.accordion-button::after {
+    filter: invert(1);
+
+}
+
 
 .accordion-body p {
     text-align: center;
@@ -359,6 +366,17 @@ main #info>ul li ul .write_box input[type=text] {
 .card:last-child {
     margin-bottom: 0;
 }
+.blockquote-footer{
+    color: #d3d3d3;
+}
+.blockquote-footer::before{
+   content: "💖" !important;
+
+}
+.blockquote-footer::after{
+    content: "💖" !important;
+ 
+ }
 
 main #info>ul li ul .box {
     width: 500px;
@@ -386,10 +404,14 @@ main #info>ul li ul .b_4 {}
     text-align: right;
 }
 
-.blockquote mb-0 {
-    margin-left: 10px;
-}
 
+.mb-0 p{
+    padding-left: 15px;
+}
+.mb-0 p:nth-child(2){
+    padding-left: 25px;
+    padding-top: 5px;
+}
 /* 방명록할거면 어팬드해야하니깐 이부분은 그때지우면될거같습니다. */
 
 /* 개인페이지 css */
@@ -422,6 +444,12 @@ main>h1 {
     margin: 100px auto;
     animation: op 5s 1 linear;
     opacity: 1;
+}
+.accordion-button{
+    
+}
+.accordion-button:focus{
+    box-shadow: none;
 }
 
 main #all_info_box {
@@ -501,15 +529,17 @@ main #all_info_box .profile div {
     border-radius: 20px;
 
 }
-#nickname{
+
+#nickname {
     border-color: gray;
 }
-#comment{
+
+#comment {
     border-color: gray;
 }
 
 
-#pwds{
+#pwds {
     margin: 15px;
     padding: 3px;
     border: 0.5px solid gray;
@@ -544,6 +574,7 @@ main #all_info_box .profile div {
 
 .footer .f_left li a {
     font-size: 1rem;
+    color: rgb(173, 173, 173);
 }
 
 .footer .f_left .title {
@@ -566,10 +597,28 @@ main #all_info_box .profile div {
 
 .footer .f_right li a {
     font-size: 1rem;
+    color: rgb(173, 173, 173);
+
 }
 
 .footer .f_right .title {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 25px;
+}
+
+.pwform{
+    border:  0.5px solid gray;
+    padding: 3px;
+    border-radius: 5px;
+    font-size: 15px;
+    margin: 5px;
+}
+.del{
+    border:  0.5px solid gray;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    margin: 5px;
+
 }
