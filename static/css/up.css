@@ -1,0 +1,35 @@
+body {background-color:#272629;}
+main {
+    width: 1200px;
+    margin: 0 auto;
+}
+main h1 {font-size:3rem;
+    margin: 100px 0 50px;text-align: center;
+    color: rgb(173, 173, 173);}
+main .form-floating {}
+main .form-floating input[type=text] {}
+main .form-floating label {}
+main .form-floating {}
+main .form-floating textarea {}
+main .form-floating label {}
+main .w_b_btn {text-align:right}
+main .w_b_btn button {
+    
+    margin-top: 20px;
+}
+.form-control {
+    background-color: rgba(104, 104, 104, 0.315);
+    color: white;
+}
+.form-control::placeholder {color:#fff;}
+.write_box {
+    text-align: right;
+    /* background-color:pink; */
+    width:30vw;
+    display: flex;
+    flex-flow: column nowrap;
+    border: 1px solid gray;
+    margin:50px auto;
+    padding: 20px;
+    border-radius: 25px;
+}

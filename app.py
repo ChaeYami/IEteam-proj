@@ -42,6 +42,8 @@ def guestbook_post():
     # nickname_receive = request.form['nickname_give']
     return jsonify({'msg': '저장완료!'})
 
+
+
 # ===================== 멤버 방명록 조회 ===================== 
 @app.route("/guestbookmem", methods=["POST"])
 def guestbook_get():
@@ -68,15 +70,36 @@ def update_book():
 def openupdate(id):
     return render_template('update.html',Resid = id)
 
-@app.route("/saveupdate", methods=["POST"])
+
+
+@app.route("/saveupdate", methods=["PUT"])
 def saveupdate():
     nickname_receive = request.form['up_nickname_give']
     comment_receive = request.form['up_comment_give']
-    idxx = request.form['idxx_give']
-
-    db.IE9.update_one({'idxx':idxx},{'$set':{'nickname':nickname_receive,'comment':comment_receive}})
+    idxxstr = request.form['idxx_give']
+    idxx = int(idxxstr)
+    print(comment_receive)
+    
+    doc = {
+        'idx' : idxx,
+        'nickname' : nickname_receive,
+        'comment' : comment_receive
+    }
+    db.IE9.update_one({'idx':idxx},{'$set': doc})
 
     return jsonify({'msg': '수정완료!'})
+
+
+
+@app.route("/findname", methods =["POST"] )
+def findname():
+    idx = request.form['_idx_']
+    int_idx = int(idx)
+    mycomment = list(db.IE9.find({'idx':int_idx},{'_id':False}))
+    print(mycomment)
+    return jsonify({'result' : mycomment})
+
+
 
 # ===================== 방명록 삭제 ===================== 
 @app.route("/delete",methods=["DELETE"]) 
