@@ -52,10 +52,16 @@ a {
     border: 1px solid gray;
     border-radius: 15px;
     text-align: center;
-    padding: 15px;
+    padding: 10px;
     width: auto;
     display: inline-block;
     position: absolute;
+    left: 10px;
+    top: 10px;
+    
+}
+#weather_section span {
+    font-size: 13px;
 }
 
 
@@ -174,7 +180,7 @@ main #title h2:nth-child(9) {
 
 main #team_profile .t_card {
     position: relative;
-    margin: 30px;
+    margin: 35px;
     width: 270px;
     text-align: center;
 }

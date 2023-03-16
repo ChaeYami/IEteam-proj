@@ -9,7 +9,7 @@ def home():
 client = MongoClient('mongodb+srv://sparta:test@cluster0.q4j284y.mongodb.net/?retryWrites=true&w=majority')
 db = client.dbsparta
 
-# ===================== 프로필사진 클릭 시 각 멤버 상세페이지로 이동 ===================== 
+# =================== 프로필사진 클릭 시 각 멤버 상세페이지로 이동 =================== 
 @app.route('/<name>')
 def go_detail(name):   # ex) name = jk
     html = ".html"
@@ -67,8 +67,6 @@ def update_book():
 def openupdate(id):
     return render_template('update.html',Resid = id)
 
-
-
 @app.route("/saveupdate", methods=["PUT"])
 def saveupdate():
     nickname_receive = request.form['up_nickname_give']
@@ -85,15 +83,12 @@ def saveupdate():
 
     return jsonify({'msg': '수정완료!'})
 
-
-
 @app.route("/findname", methods =["POST"] )
 def findname():
     idx = request.form['_idx_']
     int_idx = int(idx)
     mycomment = list(db.IE9.find({'idx':int_idx},{'_id':False}))
     return jsonify({'result' : mycomment})
-
 
 
 # ===================== 방명록 삭제 ===================== 
@@ -105,7 +100,6 @@ def delete_card():
     db.IE9.delete_one({'idx' : int(idx_receive)})
     
     return jsonify({'msg': '삭제되었습니다.'})   
-    
 
 
 

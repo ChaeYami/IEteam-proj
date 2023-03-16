@@ -19,38 +19,12 @@ function go_detail_page(name) {
 
     //등록된 url 및 window 속성 기준으로 팝업창을 연다.
     window.open(url, "hello popup", windowStatus);
-
 }
 // function go_detail_page(name) {
 //     window.open(`${name}`, '_blank');
 // }
 
-
-
-// =================== 방명록 쓰기 =================== 
-// function save_comment() {
-
-
-
-//     let nickname = $('#nickname').val();
-//     let comment = $('#comment').val();
-//     let pw = $('#pwds').val();
-
-
-
-//     let formData = new FormData();
-//     formData.append("nickname_give", nickname);
-//     formData.append("comment_give", comment);
-//     formData.append("pw_give", pw);
-
-//     fetch('/writegb', { method: "POST", body: formData, })
-//         .then((res) => res.json())
-//         .then((data) => {
-//             alert(data["msg"]);
-//             window.location.reload()
-
-//         });
-// } 
+ 
 // =================== 전체 방명록 조회 =================== 
 function show_all_comment() {
 
@@ -76,10 +50,7 @@ function show_all_comment() {
                 `
 
                 $('#comment-all-list').append(temp_html)
-
-
             })
-
         })
 }
 
@@ -108,40 +79,10 @@ function save_comment(name) {
             .then((data) => {
                 alert(data["msg"]);
                 window.location.reload()
+                opener.location.reload(); 
             });
     }
 }
-
-/* function save_comment(name) {
-    let nickname = $('#nickname').val()
-    let comment = $('#comment').val()
-    let pw = $('#pwds').val()
-
-    if(nickname.trim() == ''){
-        alert('닉네임을 입력해주세요.')
-    }else if(comment.trim() == ''){
-        alert('내용을 입력해주세요.')
-    }else if(pw.trim() == ''){
-        alert('비밀번호를 입력해주세요.')
-    }else{
-        $.ajax({
-            type: 'POST',
-            url: '/writegb',
-            data: {
-                nickname_give: nickname,
-                comment_give: comment,
-                member_name_give: member_name,
-                pwd_give: pw
-            },
-            success: function (data) {
-                alert(data['msg'])
-                window.location.reload()
-            }
-        })
-    }
-} */
-
-
 
 
 // =================== 개인 방명록 조회 =================== 
@@ -171,16 +112,15 @@ function show_comment(name) {
                             <p style="font-weight: bold; font-size: 20px;">${comment}</p>
                             <footer class="blockquote-footer">${nickname}</footer>
                             </blockquote>
-
                             
                             <div class="input_pw">
                                 <input type="password" class="pwform" id="pw${index}" placeholder="비밀번호를 입력하세요" maxlength="8">
+
                                 <button class="update" onclick="select_update(${idx}, ${index})">수정</button>
                                 <button class="del" onclick="select_del(${idx}, ${index})">삭제</button>
                                 
                             </div>
 
-                            
                         </div>
                     </div>
                 `
@@ -221,7 +161,7 @@ function select_update(idx, index) {
 };
 
 
-
+// 수정 창 띄우기
 function update_book(idx) {
 
     let idx_selected = idx
@@ -235,11 +175,10 @@ function update_book(idx) {
         .then((data) => {
 
             window.open(id,"update","width = 500, height = 500, top = 100, left = 200, location = no")
-            
 
         })
 }
-
+// 수정하기
 function save_updated_comment() {
     let updated_nickname = $('#updated_nickname').val() //문자열
     let updated_comment = $('#updated_comment').val()
@@ -262,11 +201,12 @@ function save_updated_comment() {
             .then((res) => res.json())
             .then((data) => {
                 alert(data["msg"]);
-                
+                opener.opener.location.reload(); 
                 window.close()
                 if (my_name == '서채연') {
                     
                     opener.location.href = '/cy'
+                    
                 } else if (my_name == '장한울') {
                     opener.location.href = '/hw'
                 } else if (my_name == '김영우') {
@@ -310,6 +250,7 @@ function delete_book(idx) {
         success: function (response) {
             alert(response["msg"])
             window.location.reload()
+            opener.location.reload(); 
         }
     });
 };
