@@ -29,7 +29,6 @@ def guestbook_post():
     idx = 1
     if idx_list:
         idx = idx_list[-1]['idx']+1
-    print(type (idx))
 
     doc = {
         'idx' : idx,
@@ -61,9 +60,7 @@ def guestbook_all():
 @app.route("/update", methods = ["GET","POST"])
 def update_book():
     idx_receive = int(request.form['idx_'])
-    print(type(idx_receive))
     selected_book = list(db.IE9.find({'idx' : idx_receive},{'_id':False}))
-    print(selected_book)
     return jsonify({'result':selected_book})   
     
 @app.route("/updatepg/<id>")
@@ -78,7 +75,6 @@ def saveupdate():
     comment_receive = request.form['up_comment_give']
     idxxstr = request.form['idxx_give']
     idxx = int(idxxstr)
-    print(comment_receive)
     
     doc = {
         'idx' : idxx,
@@ -96,7 +92,6 @@ def findname():
     idx = request.form['_idx_']
     int_idx = int(idx)
     mycomment = list(db.IE9.find({'idx':int_idx},{'_id':False}))
-    print(mycomment)
     return jsonify({'result' : mycomment})
 
 

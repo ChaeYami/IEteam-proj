@@ -195,8 +195,6 @@ function show_comment(name) {
 // idx값 찾기
 function select_update(idx, index) {
     let pwd = $("#pw" + index).val();
-    console.log("idx : " + idx)
-    //console.log(result)
     $.ajax({
         type: "GET",
         url: "/guestbook",
@@ -309,7 +307,6 @@ function delete_book(idx) {
         data: { 'idx_give': idx },
         success: function (response) {
             alert(response["msg"])
-            console.log(response)
             window.location.reload()
         }
     });
